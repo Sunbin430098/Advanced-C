@@ -1,2 +1,0 @@
-E:\MinGW64\bin\ar.exe qc libhaha.a CMakeFiles/haha.dir/src/test.cpp.obj
-E:\MinGW64\bin\ranlib.exe libhaha.a

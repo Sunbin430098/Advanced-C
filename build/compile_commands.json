@@ -1,12 +1,12 @@
 [
 {
-  "directory": "E:/VscodeConfig/build",
-  "command": "g++  @CMakeFiles/demo.dir/includes_CXX.rsp -g -o CMakeFiles\\demo.dir\\main.cpp.obj -c E:\\VscodeConfig\\main.cpp",
-  "file": "E:/VscodeConfig/main.cpp"
+  "directory": "/home/ubuntu/VscodeConfig/build",
+  "command": "g++   -I/home/ubuntu/VscodeConfig/include  -g   -o CMakeFiles/demo.dir/main.cpp.o -c /home/ubuntu/VscodeConfig/main.cpp",
+  "file": "/home/ubuntu/VscodeConfig/main.cpp"
 },
 {
-  "directory": "E:/VscodeConfig/build",
-  "command": "g++  @CMakeFiles/demo.dir/includes_CXX.rsp -g -o CMakeFiles\\demo.dir\\src\\test.cpp.obj -c E:\\VscodeConfig\\src\\test.cpp",
-  "file": "E:/VscodeConfig/src/test.cpp"
+  "directory": "/home/ubuntu/VscodeConfig/build",
+  "command": "g++   -I/home/ubuntu/VscodeConfig/include  -g   -o CMakeFiles/demo.dir/src/test.cpp.o -c /home/ubuntu/VscodeConfig/src/test.cpp",
+  "file": "/home/ubuntu/VscodeConfig/src/test.cpp"
 }
 ]

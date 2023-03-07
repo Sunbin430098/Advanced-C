@@ -1,2 +1,0 @@
-E:\MinGW64\bin\ar.exe qc libtest.a CMakeFiles/test.dir/src/test.cpp.obj
-E:\MinGW64\bin\ranlib.exe libtest.a
