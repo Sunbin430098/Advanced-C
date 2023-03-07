@@ -1,0 +1,2 @@
+E:\MinGW64\bin\ar.exe qc libhead.a CMakeFiles/head.dir/src/test.cpp.obj
+E:\MinGW64\bin\ranlib.exe libhead.a

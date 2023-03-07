@@ -1,0 +1,12 @@
+[
+{
+  "directory": "E:/VscodeConfig/build",
+  "command": "g++  @CMakeFiles/demo.dir/includes_CXX.rsp -g -o CMakeFiles\\demo.dir\\main.cpp.obj -c E:\\VscodeConfig\\main.cpp",
+  "file": "E:/VscodeConfig/main.cpp"
+},
+{
+  "directory": "E:/VscodeConfig/build",
+  "command": "g++  @CMakeFiles/demo.dir/includes_CXX.rsp -g -o CMakeFiles\\demo.dir\\src\\test.cpp.obj -c E:\\VscodeConfig\\src\\test.cpp",
+  "file": "E:/VscodeConfig/src/test.cpp"
+}
+]
