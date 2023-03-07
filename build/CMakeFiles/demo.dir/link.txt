@@ -1,1 +1,1 @@
-g++  -g  -rdynamic CMakeFiles/demo.dir/main.cpp.o CMakeFiles/demo.dir/src/test.cpp.o  -o demo 
+g++  -g  -rdynamic CMakeFiles/demo.dir/e_src/main.cpp.o CMakeFiles/demo.dir/src/test.cpp.o  -o demo 

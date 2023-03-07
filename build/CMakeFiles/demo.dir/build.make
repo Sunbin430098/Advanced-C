@@ -57,28 +57,28 @@ include CMakeFiles/demo.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/demo.dir/flags.make
 
-CMakeFiles/demo.dir/main.cpp.o: CMakeFiles/demo.dir/flags.make
-CMakeFiles/demo.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/VscodeConfig/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/demo.dir/main.cpp.o"
-	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/main.cpp.o -c /home/ubuntu/VscodeConfig/main.cpp
+CMakeFiles/demo.dir/e_src/main.cpp.o: CMakeFiles/demo.dir/flags.make
+CMakeFiles/demo.dir/e_src/main.cpp.o: ../e_src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/VscodeConfig/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/demo.dir/e_src/main.cpp.o"
+	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/e_src/main.cpp.o -c /home/ubuntu/VscodeConfig/e_src/main.cpp
 
-CMakeFiles/demo.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/main.cpp.i"
-	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/VscodeConfig/main.cpp > CMakeFiles/demo.dir/main.cpp.i
+CMakeFiles/demo.dir/e_src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/e_src/main.cpp.i"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/VscodeConfig/e_src/main.cpp > CMakeFiles/demo.dir/e_src/main.cpp.i
 
-CMakeFiles/demo.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/main.cpp.s"
-	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/VscodeConfig/main.cpp -o CMakeFiles/demo.dir/main.cpp.s
+CMakeFiles/demo.dir/e_src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/e_src/main.cpp.s"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/VscodeConfig/e_src/main.cpp -o CMakeFiles/demo.dir/e_src/main.cpp.s
 
-CMakeFiles/demo.dir/main.cpp.o.requires:
+CMakeFiles/demo.dir/e_src/main.cpp.o.requires:
 
-.PHONY : CMakeFiles/demo.dir/main.cpp.o.requires
+.PHONY : CMakeFiles/demo.dir/e_src/main.cpp.o.requires
 
-CMakeFiles/demo.dir/main.cpp.o.provides: CMakeFiles/demo.dir/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main.cpp.o.provides.build
-.PHONY : CMakeFiles/demo.dir/main.cpp.o.provides
+CMakeFiles/demo.dir/e_src/main.cpp.o.provides: CMakeFiles/demo.dir/e_src/main.cpp.o.requires
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/e_src/main.cpp.o.provides.build
+.PHONY : CMakeFiles/demo.dir/e_src/main.cpp.o.provides
 
-CMakeFiles/demo.dir/main.cpp.o.provides.build: CMakeFiles/demo.dir/main.cpp.o
+CMakeFiles/demo.dir/e_src/main.cpp.o.provides.build: CMakeFiles/demo.dir/e_src/main.cpp.o
 
 
 CMakeFiles/demo.dir/src/test.cpp.o: CMakeFiles/demo.dir/flags.make
@@ -107,13 +107,13 @@ CMakeFiles/demo.dir/src/test.cpp.o.provides.build: CMakeFiles/demo.dir/src/test.
 
 # Object files for target demo
 demo_OBJECTS = \
-"CMakeFiles/demo.dir/main.cpp.o" \
+"CMakeFiles/demo.dir/e_src/main.cpp.o" \
 "CMakeFiles/demo.dir/src/test.cpp.o"
 
 # External object files for target demo
 demo_EXTERNAL_OBJECTS =
 
-demo: CMakeFiles/demo.dir/main.cpp.o
+demo: CMakeFiles/demo.dir/e_src/main.cpp.o
 demo: CMakeFiles/demo.dir/src/test.cpp.o
 demo: CMakeFiles/demo.dir/build.make
 demo: CMakeFiles/demo.dir/link.txt
@@ -125,7 +125,7 @@ CMakeFiles/demo.dir/build: demo
 
 .PHONY : CMakeFiles/demo.dir/build
 
-CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/main.cpp.o.requires
+CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/e_src/main.cpp.o.requires
 CMakeFiles/demo.dir/requires: CMakeFiles/demo.dir/src/test.cpp.o.requires
 
 .PHONY : CMakeFiles/demo.dir/requires

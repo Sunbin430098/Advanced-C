@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ubuntu/VscodeConfig/main.cpp" "/home/ubuntu/VscodeConfig/build/CMakeFiles/demo.dir/main.cpp.o"
+  "/home/ubuntu/VscodeConfig/e_src/main.cpp" "/home/ubuntu/VscodeConfig/build/CMakeFiles/demo.dir/e_src/main.cpp.o"
   "/home/ubuntu/VscodeConfig/src/test.cpp" "/home/ubuntu/VscodeConfig/build/CMakeFiles/demo.dir/src/test.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

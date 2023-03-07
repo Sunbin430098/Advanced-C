@@ -1,8 +1,8 @@
 [
 {
   "directory": "/home/ubuntu/VscodeConfig/build",
-  "command": "g++   -I/home/ubuntu/VscodeConfig/include  -g   -o CMakeFiles/demo.dir/main.cpp.o -c /home/ubuntu/VscodeConfig/main.cpp",
-  "file": "/home/ubuntu/VscodeConfig/main.cpp"
+  "command": "g++   -I/home/ubuntu/VscodeConfig/include  -g   -o CMakeFiles/demo.dir/e_src/main.cpp.o -c /home/ubuntu/VscodeConfig/e_src/main.cpp",
+  "file": "/home/ubuntu/VscodeConfig/e_src/main.cpp"
 },
 {
   "directory": "/home/ubuntu/VscodeConfig/build",

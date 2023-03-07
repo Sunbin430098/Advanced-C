@@ -520,32 +520,32 @@ ExperimentalStart/fast:
 	$(MAKE) -f CMakeFiles/ExperimentalStart.dir/build.make CMakeFiles/ExperimentalStart.dir/build
 .PHONY : ExperimentalStart/fast
 
-main.o: main.cpp.o
+e_src/main.o: e_src/main.cpp.o
 
-.PHONY : main.o
+.PHONY : e_src/main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main.cpp.o
-.PHONY : main.cpp.o
+e_src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/e_src/main.cpp.o
+.PHONY : e_src/main.cpp.o
 
-main.i: main.cpp.i
+e_src/main.i: e_src/main.cpp.i
 
-.PHONY : main.i
+.PHONY : e_src/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main.cpp.i
-.PHONY : main.cpp.i
+e_src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/e_src/main.cpp.i
+.PHONY : e_src/main.cpp.i
 
-main.s: main.cpp.s
+e_src/main.s: e_src/main.cpp.s
 
-.PHONY : main.s
+.PHONY : e_src/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/main.cpp.s
-.PHONY : main.cpp.s
+e_src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/e_src/main.cpp.s
+.PHONY : e_src/main.cpp.s
 
 src/test.o: src/test.cpp.o
 
@@ -614,9 +614,9 @@ help:
 	@echo "... Nightly"
 	@echo "... NightlyConfigure"
 	@echo "... ExperimentalStart"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... e_src/main.o"
+	@echo "... e_src/main.i"
+	@echo "... e_src/main.s"
 	@echo "... src/test.o"
 	@echo "... src/test.i"
 	@echo "... src/test.s"
