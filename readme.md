@@ -38,9 +38,7 @@
 
 ## 1.基本命令
 
-[git与vscode配置]: (https://blog.csdn.net/m0_51185558/article/details/126181439)
-
-
+[git与vscode配置](https://blog.csdn.net/m0_51185558/article/details/126181439)
 
 #### git init 		初始化git仓库
 
