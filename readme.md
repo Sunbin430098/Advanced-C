@@ -38,7 +38,7 @@
 
 ## 1.基本命令
 
-[１]: https://blog.csdn.net/m0_51185558/article/details/12618143９	"git基本配置"
+[1]: https://blog.csdn.net/m0_51185558/article/details/126181439	"git基本配置"
 
 #### git init 		初始化git仓库
 
