@@ -38,8 +38,6 @@
 
 ## 1.基本命令
 
-[1]: https://blog.csdn.net/m0_51185558/article/details/126181439	"git基本配置"
-
 #### git init 		初始化git仓库
 
 #### git config --global user.name “your name”
@@ -80,7 +78,13 @@
 
 ## 3.GirKraken 中涉及的可视化git
 
-​	![](/home/ubuntu/图片/GitKraken.png)
+​	
+
+```html
+<div align="kraken gui">
+<img src="doc/image/gitkraken.png" width=99% />
+</div>
+```
 
 使用可视化界面主要用于操作分之(branch)
 
