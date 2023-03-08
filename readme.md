@@ -38,6 +38,10 @@
 
 ## 1.基本命令
 
+[git与vscode配置]: (https://blog.csdn.net/m0_51185558/article/details/126181439)
+
+
+
 #### git init 		初始化git仓库
 
 #### git config --global user.name “your name”
@@ -78,9 +82,7 @@
 
 ## 3.GirKraken 中涉及的可视化git
 
-​	
-
-```html
+```HTML
 <div align="kraken gui">
 <img src="doc/image/gitkraken.png" width=99% />
 </div>
