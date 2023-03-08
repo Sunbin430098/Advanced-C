@@ -38,7 +38,7 @@
 
 ## 1.基本命令
 
-[git到vscode基本配置]: https://blog.csdn.net/m0_51185558/article/details/12618143９
+[１]: https://blog.csdn.net/m0_51185558/article/details/12618143９	"git基本配置"
 
 #### git init 		初始化git仓库
 
@@ -80,7 +80,7 @@
 
 ## 3.GirKraken 中涉及的可视化git
 
-![](/home/ubuntu/图片/GitKraken.png)
+​	![](/home/ubuntu/图片/GitKraken.png)
 
 使用可视化界面主要用于操作分之(branch)
 
