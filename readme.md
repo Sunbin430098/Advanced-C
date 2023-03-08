@@ -80,11 +80,9 @@
 
 ## 3.GirKraken 中涉及的可视化git
 
-```HTML
 <div align="kraken gui">
 <img src="doc/image/gitkraken.png" width=99% />
 </div>
-```
 
 使用可视化界面主要用于操作分之(branch)
 
