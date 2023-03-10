@@ -170,13 +170,17 @@ PDF文档里为非常详细的说明，理论上very到位,windows操作不用�
 
 ### 	a)静态库：可执行文件A在汇编结束后生成A.o，进入链接阶段时，对封库的源文件经过处理后和A.o**一同链接打包(压缩)成为一组文件B，从此对库和A的任何更改在编译的时候都是整个B一起编译
 
-![image-20230310162331380](/home/ubuntu/.config/Typora/typora-user-images/image-20230310162331380.png
+<div align="static_process">
+<img src="doc/image/static_process.png" width=60% />
+</div>
 
-### 													<img src="/home/ubuntu/.config/Typora/typora-user-images/image-20230310162934368.png" alt="image-20230310162934368" style="zoom:67%;" />
+
 
 ### 		特点：移植方便，之前的ROS配置都是静态库配置，但是浪费空间，一个库会反复被调用．更改后整体编译浪费内存	
 
-<img src="/home/ubuntu/.config/Typora/typora-user-images/image-20230310163142631.png" alt="image-20230310163142631" style="zoom: 67%;" />
+<div align="static_short">
+<img src="doc/image/static_short.png" width=60% />
+</div>
 
 ```cmake
 #打包
@@ -191,7 +195,9 @@ g++ main.cpp -L./xxx	-lstaticdemo	#-L为添加静态库的路径	-l为库名称�
 
 ### 	b)动态库：程序编译时不会连接动态库，在执行的时候载入，因此如果不同程序都需要调用该库，在内存中存入一份即可，同时不管是程序还是库更新量都更少，不会整体编译．
 
-<img src="/home/ubuntu/.config/Typora/typora-user-images/image-20230310163156617.png" alt="image-20230310163156617" style="zoom: 67%;" />
+<div align="dynamic">
+<img src="doc/image/dynamic.png" width=60% />
+</div>
 
 ```cmake
 #打包
@@ -274,9 +280,13 @@ target_link_libraries(use_head
 
 [参考文档](https://blog.csdn.net/qq_43479892/article/details/127594711?ops_request_misc=&request_id=&biz_id=102&utm_term=%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E5%BA%93%E5%91%BD%E4%BB%A4&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-127594711.142^v73^control_1,201^v4^add_ask,239^v2^insert_chatgpt&spm=1018.2226.3001.4187)
 
-![image-20230310163004222](/home/ubuntu/.config/Typora/typora-user-images/image-20230310163004222.png)
+<div align="dynamic">
+    <img src="doc/image/gcc_process.png" width=60% />
+</div>
 
-<img src="/home/ubuntu/.config/Typora/typora-user-images/image-20230310180403033.png" alt="image-20230310180403033" style="zoom:67%;" />
+<div align="dynamic">
+    <img src="doc/image/gcc_process_code.png" width=60% />
+</div>
 
 
 
