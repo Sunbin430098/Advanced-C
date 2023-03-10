@@ -77,9 +77,7 @@ target_link_libraries(use_head
 )
 ```
 
-### link_directories()
-
-### link_libraries()	添加需要链接的库文件路径，注意这里是全路径,涉及动态静态链接库的问题，以后再补充
+### link_directories()	link_libraries()	这两个不常用或被其他组合代替
 
 ### include_directories()	为项目添加头文件目录
 
@@ -147,7 +145,7 @@ cmake_minimum_required(VERSION 3.5.1)
 
 set(CMAKE_C_STANDARD 99)
 
-add_library(world STATIC world.c world.h)#STATIC说明设置为静态库
+add_library(world STATIC world.c world.h)#STATIC说明设置为静态库，啥都没有的话默认静态库
 
 #Hello
 Cmakecmake_minimum_required(VERSION 3.5.1)
@@ -159,6 +157,24 @@ add_library(hello STATIC world.c hello.h)
 
 
 ```
+
+## 2.动态静态库
+
+#### １）理论知识
+
+静态库	STATIC	(.a 	.lib)
+
+动态库	SHARED	(.so	.dll)
+
+PDF文档里为非常详细的说明，理论上very到位,windows操作不用管
+
+### ２)Cmakelists.txt文件配置项目的库
+
+[参考文档](https://blog.csdn.net/weixin_45004203/article/details/125256367?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-1-125256367-blog-123531206.pc_relevant_vip_default&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-1-125256367-blog-123531206.pc_relevant_vip_default&utm_relevant_index=1)
+
+###  3 )gcc/g++编译文件原理
+
+[参考文档](https://blog.csdn.net/weixin_45004203/article/details/129367238)
 
 
 
