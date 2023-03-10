@@ -162,19 +162,121 @@ add_library(hello STATIC world.c hello.h)
 
 #### １）理论知识
 
-静态库	STATIC	(.a 	.lib)
-
-动态库	SHARED	(.so	.dll)
+静态库	STATIC	(.a 	.lib)	＆	动态库	SHARED	(.so	.dll)
 
 PDF文档里为非常详细的说明，理论上very到位,windows操作不用管
+
+[对g++上的库操作命令进行详细说明](https://blog.csdn.net/m0_58367586/article/details/127035200?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167843759316800184136063%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=167843759316800184136063&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-2-127035200-null-null.142^v73^control_1,201^v4^add_ask,239^v2^insert_chatgpt&utm_term=%E6%89%93%E5%8C%85%E9%9D%99%E6%80%81%E5%BA%93%E5%91%BD%E4%BB%A4&spm=1018.2226.3001.4187)
+
+### 	a)静态库：可执行文件A在汇编结束后生成A.o，进入链接阶段时，对封库的源文件经过处理后和A.o**一同链接打包(压缩)成为一组文件B，从此对库和A的任何更改在编译的时候都是整个B一起编译
+
+![image-20230310162331380](/home/ubuntu/.config/Typora/typora-user-images/image-20230310162331380.png
+
+### 													<img src="/home/ubuntu/.config/Typora/typora-user-images/image-20230310162934368.png" alt="image-20230310162934368" style="zoom:67%;" />
+
+### 		特点：移植方便，之前的ROS配置都是静态库配置，但是浪费空间，一个库会反复被调用．更改后整体编译浪费内存	
+
+<img src="/home/ubuntu/.config/Typora/typora-user-images/image-20230310163142631.png" alt="image-20230310163142631" style="zoom: 67%;" />
+
+```cmake
+#打包
+g++ -c StaticDemo.cpp	# -c:	将文件编译到汇编结束，生成StaticDemo.o
+ar -crv libstaticdemo.a	StaticDemo.o	#将StaticDemo.o打包成静态库文件(显然打包是文件类别应当相同，故为.o文件)
+																				#ar为gnu归档工具，-r -c(create) -t -v 四种命令，详见上述链接
+#使用(假设main.c执行的时候需要调用StaticDemo生成的静态库)
+g++ main.cpp -L./xxx	-lstaticdemo	#-L为添加静态库的路径	-l为库名称，此处注意库名称掐头去尾(lib和.a)
+```
+
+
+
+### 	b)动态库：程序编译时不会连接动态库，在执行的时候载入，因此如果不同程序都需要调用该库，在内存中存入一份即可，同时不管是程序还是库更新量都更少，不会整体编译．
+
+<img src="/home/ubuntu/.config/Typora/typora-user-images/image-20230310163156617.png" alt="image-20230310163156617" style="zoom: 67%;" />
+
+```cmake
+#打包
+g++ -fpic -c SharedDemo.cpp #生成.oq-fpic即生成代码，方便多个程序调用共享
+g++ -shared -o libshareddemo.so ShareDemo.o	#将SharedDemo.o打包成动态库
+
+#使用
+g++ main.cpp -L./xxx	-l shareddemo
+```
+
+### 	c)一个运行时的重要不同：
+
+#### 		静态库在汇编之后和可执行程序的.o一起打包，运行程序时内存中一定会检测到
+
+#### 		动态库编译时只会检查是否有添加的动态库路径和名字，有即编译通过不会报错
+
+#### 					执行时首先会检查是否加载了动态库(检查和加载是由动态链接器完成的)，但是如果没有调用动态库的函数，库就不会被加载内存，因此会报加载不到或文件不存在的错误(即动态连接器不知道终端指定的-L路径)
+
+#### 		解决：
+
+#### 					修改系统环境变量，将动态库路径添加到环境变量LD_LIBRARY_PATH中
+
+```cmake
+gedit ~/.bashrc
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:动态库的绝对路径
+修改之后source ~/.bashrc
+```
+
+
 
 ### ２)Cmakelists.txt文件配置项目的库
 
 [参考文档](https://blog.csdn.net/weixin_45004203/article/details/125256367?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-1-125256367-blog-123531206.pc_relevant_vip_default&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-1-125256367-blog-123531206.pc_relevant_vip_default&utm_relevant_index=1)
 
+```cmake
+#与动态静态库设置有关的4个Cmake命令
+add_library(A	static/shared	B)	#将B生成库，库名字为libA.so或libA.a
+																	#注意:.h和.c都要添加,划重点！！！
+include_directories(${PROJECT_SOURCE_DIR}/xxx)		#包含头文件路径
+target_link_libraries()						#添加链接库，例如target_link_libraries(hello libhello.so)	这与ROS用到的一致
+																 #注意，静态库不需要，只有动态库需要加这个命令，由此可知ROS里面执行的时候调用动态库而不是静态库	
+																 #注意:.h和.c都要添加,划重点！！！
+																 
+#对于main.c即可执行文件来说，需要两条必要命令
+add_exxcutable()
+add_dependencies()
+```
+
+一种思路清晰并且比较规范的为Cmakelists.txt添加头加源文件库可以参考[ROS配置头文件和源文件](http://www.autolabor.com.cn/book/ROSTutorials/di-3-zhang-ros-tong-xin-ji-zhi-jin-jie/32-roszhong-de-tou-wen-jian-yu-yuan-wen-jian/322-zi-ding-yi-yuan-wen-jian-diao-yong.html)
+
+```cmake
+#库文件(头加源文件)
+include_directories(
+include
+  ${catkin_INCLUDE_DIRS}
+)
+add_library(head
+  include/test_head_src/haha.h
+  src/haha.cpp
+)
+add_dependencies(head ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(head
+  ${catkin_LIBRARIES}
+)
+
+
+#可执行文件
+add_executable(use_head src/use_head.cpp)
+add_dependencies(use_head ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(use_head
+  head#此处需要添加之前设置的 head 库
+  ${catkin_LIBRARIES}
+)
+
+```
+
+
+
 ###  3 )gcc/g++编译文件原理
 
-[参考文档](https://blog.csdn.net/weixin_45004203/article/details/129367238)
+[参考文档](https://blog.csdn.net/qq_43479892/article/details/127594711?ops_request_misc=&request_id=&biz_id=102&utm_term=%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E5%BA%93%E5%91%BD%E4%BB%A4&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-127594711.142^v73^control_1,201^v4^add_ask,239^v2^insert_chatgpt&spm=1018.2226.3001.4187)
+
+![image-20230310163004222](/home/ubuntu/.config/Typora/typora-user-images/image-20230310163004222.png)
+
+<img src="/home/ubuntu/.config/Typora/typora-user-images/image-20230310180403033.png" alt="image-20230310180403033" style="zoom:67%;" />
 
 
 
