@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-../include/test.h
+../include/helloworld_test.h
 iostream
 -
 
-/home/ubuntu/VscodeConfig/e_src/main.cpp
-test.h
+/home/ubuntu/VscodeConfig/e_src/helloworld_main.cpp
+helloworld_test.h
 -
 
-/home/ubuntu/VscodeConfig/src/test.cpp
-test.h
+/home/ubuntu/VscodeConfig/src/helloworld_test.cpp
+helloworld_test.h
 -
 

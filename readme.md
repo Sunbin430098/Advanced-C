@@ -2,28 +2,39 @@
 
 
 
-## vscode C工程配置
+## 一．vscode C工程配置
 
-### g++编译调试流程：(单文件编程)
+### １．g++编译调试流程：(单文件编程)
 
 新建文件夹打开之后，直接将.vscode文件夹粘贴进去即可
-完整流程：
-    tasks.json是编译器，里面除了MinGW64路径之外其余都不用改
-        终端->配置默认生成任务->g++
-    launch.json是调试器，同样只需要改MinGW64路径
-        运行->添加配置->g++
-    注意：路径不要有中文
-快捷按钮：右上角三角按钮(运行加调试)
-(linux以及windows版本编译调试均有，多文件建议使用cmake)
+
+#### 完整流程：
+
+####     tasks.json是编译器，里面除了MinGW64路径之外其余都不用改
+
+​        终端->配置默认生成任务->g++
+
+####     launch.json是调试器，同样只需要改MinGW64路径
+
+​        运行->添加配置->g++
+​    注意：路径不要有中文
+
+#### 快捷按钮：右上角三角按钮(运行加调试)
+
+#### (linux以及windows版本编译调试均有，多文件建议使用cmake)
 
 
 
-### cmake编译调试流程：(多文件编程)
+### ２．cmake编译调试流程：(多文件编程)
 
-​    建立：
-​        ctrl+shift+p->cmake q(cmake快速开始)->输入项目名称->excutable
-​        ->界面最下方编译即可生成项目的build完整目录
-​    基础模板：
+###     建立：
+
+####         ctrl+shift+p->cmake q(cmake快速开始)->输入项目名称->excutable
+
+####         ->界面最下方编译即可生成项目的build完整目录
+
+###     基础模板：
+
 ​        cmake_minimum_required (VERSION 2.8.12)#规定cmake的最低版本要求
 ​        project(Cmake_test)#项目的名称，不一定和你的文件夹名称一样
 ​        set(CMAKE_CXX_COMPILER "g++")#设置c++编译器        	
@@ -34,7 +45,7 @@
 
 
 
-## cmake使用
+## 二．cmake使用
 
 ## １．cmake命令
 
@@ -290,7 +301,7 @@ target_link_libraries(use_head
 
 
 
-## 扩充知识之git使用
+## 三．git使用
 
 ## 1.基本命令
 
@@ -339,24 +350,127 @@ target_link_libraries(use_head
 <div align="kraken gui">
 <img src="doc/image/gitkraken.png" width=99% />
 </div>
+#### 使用可视化界面主要用于操作分枝(branch)
 
-使用可视化界面主要用于操作分之(branch)
+#### LOCAL下面为本地库，添加branch的时候只能在LOCAL添加，添加之后会提示建立同名远程库(origin/xx)
 
-LOCAL下面为本地库，添加branch的时候只能在LOCAL添加，添加之后会提示建立同名远程库(origin/xx)
+#### 添加之后双击图像进入分支，右侧选择view all files可以操作project，也可以查看path或tree项目架构
 
-添加之后双击图像进入分支，右侧选择view all files可以操作project，也可以查看path或tree项目架构
+#### 对project内容更改之后　在修改区记得stage all changes,添加Commit Message后点击commit即可
 
-对project内容更改之后　在修改区记得stage all changes,添加Commit Message后点击commit即可
-
-此时更改被添加至本地branch或master库(只在当前分支，其他分支看不到更改)
+#### 此时更改被添加至本地branch或master库(只在当前分支，其他分支看不到更改)
 
 ### branch并入操作
 
-pull request 配置可以选择从本地当前库到master或远程库，origin需要在github.com同意验证
+#### pull request 配置可以选择从本地当前库到master或远程库，origin需要在github.com同意验证
 
-但是此操作主要是为开源项目项目做代码贡献
+#### 但是此操作主要是为开源项目项目做代码贡献
 
-分支合并可以拖动分支条到目的分支或master,实际上是进行git merge
+#### 分支合并可以拖动分支条到目的分支或master,实际上是进行git merge
 
 
+
+## 四．指针与结构体Advanced
+
+[参考文章](https://blog.csdn.net/qq_67569905/article/details/125100875?ops_request_misc=&request_id=&biz_id=102&utm_term=C%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6%E7%BB%93%E6%9E%84%E4%BD%93%20%E6%8C%87%E9%92%88&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-125100875.nonecase&spm=1018.2226.3001.4187)
+
+## １．指针	
+
+### 基础指针回忆：
+
+#### 				指针变量的值是赋给其变量的地址值，类型是允许其指向的类型	多文件编程的时候，均使用模拟按引用调用，即向函数传入变量地址，函数形参为指针变量，这样既可以解决return只能返回一个值的问题，也能解决按值引用传入的是副本的问题．
+
+### 函数指针：
+
+#### 				指向函数的指针，指向函数入口地址，参考教材例子
+
+```c
+//定义函数指针
+void SelectionSoer(int a[], int b[], int (* compare)(int a, int b) )
+ //指向的函数
+ int Ascending(int a, int b)
+ int Descending(int a, int b)
+    
+ //调用
+ SelectionSort(a, b, Ascending);
+SelectionSort(a, b, Desc0ending);
+```
+
+#### 指针与数组：
+
+#### 	一维数组:	地址&a[0] 	a	对应的存的值为	a[0]	*(a+0)
+
+#### 									&a[1]	a+1									a[1]	*(a+1)
+
+#### 							注意:1.对指向数组的指针变量p,	p+1指向下一个元素，但是p本身的指向不变
+
+#### 																						而p++指向下一个元素，并且p本身也移位，指向了下一个元素．移位的字节数取决于指向的变量类型
+
+#### 									  2.arr`代表的是**数组首元素的地址**，而`&arr代表的是**数组的地址**
+
+#### 	二维数组：
+
+#### 				分清表达的含义：图的行列非常清晰　能用就行，复杂的乱七八糟的形式不用管	a[i] [j]  = *( a[i]+j)	足够了
+
+<div align="2v_*p">
+<img src="doc/image/2v_*p.jpg" width=70% />
+</div>
+
+#### 				定义	行指针：int (*p)[N]	其中N为一行的列数不可省略(移动一位相当于移动一行)	*(p+i)+j
+
+#### 							列指针：int *p(相当于指向一个一维的有行乘列个元素的数组，每移动一位移动一个元素长度)	&p[i * n+j]
+
+### 指针数组：存放指针的数组	char* p1[10];*//一个数组，存放十个字符指针*	*[]的优先级高于* *
+
+### 数组指针：指向数组的指针	char (*  p2)[10];*//一个指针,指向一个含有十个char型数据的数组(行指针)
+
+
+
+## 2.结构体　共用体　枚举等应用
+
+[结构体内存问题参考文档](https://blog.csdn.net/weixin_59796310/article/details/124315838?ops_request_misc=&request_id=&biz_id=102&utm_term=C%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6%E7%BB%93%E6%9E%84%E4%BD%93%20%E6%8C%87%E9%92%88&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-3-124315838.nonecase&spm=1018.2226.3001.4187)	
+
+### 	工程中向函数传递结构体要传递结构体的地址
+
+```c
+typedef enum{
+    M3508 = 0,
+    M2006
+}DJI_e;
+```
+
+```c
+typedef struct {
+    DJI_e motorType;
+    struct{
+        float   rpm;									
+        float   current;							
+    }FdbData;
+}DJI_t;
+```
+
+```c
+typedef union
+{
+    uint8_t data[BAG_LENGTH];
+    struct 
+    {
+        uint8_t header[HEAD_LENGTH];
+        union
+        {
+            uint8_t payload[PAYLOAD_LENGTH];
+            struct
+            {
+                float yaw;      //航向角
+                float roll;     //俯仰角
+                float pitch;    //横滚角
+                float x;        //坐标x
+                float y;        //坐标y
+                float w;        //航向角速度
+            };
+        };
+        uint8_t tailer[TAIL_LENGTH];
+    }__attribute__((packed));
+}__attribute__((packed)) Coding_Bag_u;
+```
 

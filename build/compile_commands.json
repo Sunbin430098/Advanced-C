@@ -1,12 +1,12 @@
 [
 {
   "directory": "/home/ubuntu/VscodeConfig/build",
-  "command": "g++   -I/home/ubuntu/VscodeConfig/include  -g   -o CMakeFiles/demo.dir/e_src/main.cpp.o -c /home/ubuntu/VscodeConfig/e_src/main.cpp",
-  "file": "/home/ubuntu/VscodeConfig/e_src/main.cpp"
+  "command": "g++   -I/home/ubuntu/VscodeConfig/include  -g   -o CMakeFiles/demo.dir/e_src/helloworld_main.cpp.o -c /home/ubuntu/VscodeConfig/e_src/helloworld_main.cpp",
+  "file": "/home/ubuntu/VscodeConfig/e_src/helloworld_main.cpp"
 },
 {
   "directory": "/home/ubuntu/VscodeConfig/build",
-  "command": "g++   -I/home/ubuntu/VscodeConfig/include  -g   -o CMakeFiles/demo.dir/src/test.cpp.o -c /home/ubuntu/VscodeConfig/src/test.cpp",
-  "file": "/home/ubuntu/VscodeConfig/src/test.cpp"
+  "command": "g++   -I/home/ubuntu/VscodeConfig/include  -g   -o CMakeFiles/demo.dir/src/helloworld_test.cpp.o -c /home/ubuntu/VscodeConfig/src/helloworld_test.cpp",
+  "file": "/home/ubuntu/VscodeConfig/src/helloworld_test.cpp"
 }
 ]
